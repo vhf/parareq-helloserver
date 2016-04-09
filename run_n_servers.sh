@@ -7,8 +7,8 @@ cd helloserver
 mix deps.get
 mix compile
 
-start=1337
-end=$(($1 + 1337 - 1))
+start=35000
+end=$(($1 + $start - 1))
 
 for port in `seq $start 1 $end`; do
   PORT=$port elixir --detached --no-halt -S mix phoenix.server &
