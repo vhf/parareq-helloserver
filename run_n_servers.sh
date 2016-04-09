@@ -11,6 +11,6 @@ start=35000
 end=$(($1 + $start - 1))
 
 for port in `seq $start 1 $end`; do
-  PORT=$port elixir --detached --no-halt -S mix phoenix.server &
+  PORT=$port nice -n 15 elixir --detached --no-halt -S mix phoenix.server &
   echo "server running on $port"
 done
